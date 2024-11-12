@@ -1,0 +1,424 @@
+/* Основні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Gabriela", serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Шапка сайту */
+header {
+    display: flex;
+    background-image: url('../img/2.jpg'); /* Заданий шлях до зображення */
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    color: white;
+    padding: 10px 0;
+    border-radius: 0 0 64px 64px;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+header::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Напівпрозоре чорне затемнення */
+    z-index: -1; /* Псевдоелемент знаходиться під контентом */
+}
+
+/* Логотип */
+.logo {
+    height: 70px;
+    background-color: #269C0D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 10s linear infinite;
+}
+
+/* Анімація обертання логотипу */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Стилі навігації */
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px; 
+    background: linear-gradient(90deg, #269C0D, #ff6600);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+header nav a:hover {
+    color: #269C0D;
+    transform: rotateY(20deg) rotateX(10deg) scale(1.1);
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Основний контент */
+main {
+    margin-top: 100px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Картки спеціалістів */
+.specialists-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/* Загальний стиль для карток */
+.specialist-card {
+    display: flex;
+    border: 2px solid #269C0D;
+    border-radius: 36px;
+    max-width: 610px;
+    height: 320px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Картки, які потрапили в область видимості */
+.specialist-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Збільшення картки при наведенні */
+.specialist-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Фото спеціаліста */
+.specialist-card-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 260px;
+    height: 270px;
+}
+
+.specialist-card-photo img {
+    max-width: 258px;
+    height: auto;
+    border-radius: 10px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+/* Текст спеціаліста */
+.specialist-card-text {
+    position: relative;
+    padding-top: 35px;
+    width: 300px;
+}
+
+.specialist-card h2 {
+    color: #269C0D;
+    font-size: 20px;
+    margin: 10px 0;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.specialist-card p {
+    font-size: 16px;
+    text-align: left;
+    padding-left: 45px;
+    padding-right: 20px;
+}
+
+/* Кнопка */
+.specialist-card-text button {
+    position: absolute;
+    background-color: #269C0D;
+    color: white;
+    border: none;
+    width: 170px;
+    height: 50px;
+    border-radius: 64px;
+    cursor: pointer;
+    font-size: 16px;
+    bottom: 10px;
+    right: 70px;
+}
+
+.specialist-card-text button:hover {
+    background-color: #4cae4c;
+}
+
+/* Футер */
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-image: url(../img/Group\ 2153.png);
+}
+
+.contact-info, .menu, .location, .social-media {
+    margin-bottom: 20px;
+}
+
+footer h2{
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #fff;
+}
+
+footer p{
+    color: #fff;
+    font-size: 18px;
+}
+
+.map {
+    width: 300px;
+    margin-top: 10px;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Стилі для посилання */
+.icon-link {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+/* Зміна стилів при наведенні */
+.icon-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Стилі для самої іконки */
+.icon-link img {
+    width: 60%;
+    height: 60%;
+    margin-top: 20%;
+    transition: opacity 0.3s;
+}
+
+/* Зміна прозорості іконки при наведенні */
+.icon-link:hover img {
+    opacity: 0.8;
+}
+
+/* Стиль для секції спеціалістів */
+.specialists {
+    background-size: 1440px 1120px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 1440px;
+    height: 1500px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+/* Стиль для картинки в секції */
+.specialists img {
+    width: 100%;
+    max-width: 1440px;
+    height: auto;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    top: -90px;
+}
+
+/* Текстовий контент в секції */
+.specialists h1, .specialists p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Підключення анімації карток при потраплянні в область видимості */
+.specialist-card {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.specialist-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.specialist-content{
+    position: relative;
+    border: 2px solid #269C0D;
+    border-radius: 36px;
+    max-width: 1200px;
+    margin: 20px auto;
+    height: 260px;
+}
+
+.specialist-content-inner{
+    display: flex;
+}
+
+.specialist-content-button{
+    padding: 80px 40px 70px 150px;
+}
+
+.specialist-content-button button {
+    background-color: #269C0D;
+    color: white;
+    border: none;
+    width: 205px;
+    height: 55px;
+    border-radius: 64px;
+    cursor: pointer;
+    font-size: 16px;
+    bottom: 10px;
+    right: 70px;
+    margin-left: 30px;
+    transition: all 0.3s ease; /* Плавний перехід для всіх змін */
+}
+
+/* Ефект при наведенні */
+.specialist-content-button button:hover {
+    background-color: #4cae4c; /* Зміна кольору на темно-зелений */
+    transform: translateY(-5px); /* Підйом кнопки при наведенні */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Тінь для 3D ефекту */
+}
+
+/* Ефект при натисканні */
+.specialist-content-button button:active {
+    transform: translateY(4px); /* Зсув кнопки вниз при натисканні */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легка тінь при натисканні */
+}
+
+/* Доповнення для фокусу, коли кнопка активна */
+.specialist-content-button button:focus {
+    outline: none; /* Видалення стандартного контуру */
+    box-shadow: 0 0 0 4px rgba(38, 156, 13, 0.5); /* Легкий контур навколо кнопки */
+}
+
+
+.specialist-content-text h2{
+    color: #269C0D;
+    padding-left: 15px;
+    padding-top: 30px;
+}
+
+.specialist-content-text p{
+    padding-left: 80px;
+    padding-top: 30px;
+    color: white;
+}
+
+.specialist-content-img img{
+    position: absolute;
+    max-width: 1197px;
+    z-index: -1;
+    top: 0;
+}
+
+
