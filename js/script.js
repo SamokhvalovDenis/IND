@@ -28,3 +28,14 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.specialist-card').forEach(card => {
     observer.observe(card);
 });
+
+
+// JavaScript для бургер-меню
+const hamMenu = document.querySelector('.ham-menu');
+
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+hamMenu.addEventListener('click', () =>{
+    hamMenu.classList.toggle('active');
+    offScreenMenu.classList.toggle('active');
+})
