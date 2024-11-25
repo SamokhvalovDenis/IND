@@ -39,3 +39,24 @@ hamMenu.addEventListener('click', () =>{
     hamMenu.classList.toggle('active');
     offScreenMenu.classList.toggle('active');
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    const specialistContent = document.querySelector('.specialist-content');
+    const specialistContentInner = document.querySelector('.specialist-content-inner');
+    
+    // Створюємо спостерігач для .specialist-content
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // Прибираємо спостереження
+            }
+        });
+    }, {
+        threshold: 0.2 // 20% елемента повинні бути видимими для спрацьовування
+    });
+    
+    // Спостерігаємо за елементами
+    observer.observe(specialistContent);
+    observer.observe(specialistContentInner);
+});
